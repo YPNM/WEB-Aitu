@@ -4,16 +4,28 @@
     <title>Login Page</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <div id="login_container">
     <div id="logotype">
-        <img src="/images/Astana IT University.png">
+        <img src="/images/Astana IT University.png" width="150" height="70">
     </div>
-    <div class="animate_form" id="login">
+    <h1>Log In</h1>
+    <div class="input">
+        <div class="input-addon">
+            <i class="material-icons">face</i>
+        </div>
+        <input id="email" placeholder="Email" type="text" required class="validate" autocomplete="on">
+    </div>
+    <div class="input">
+        <div class="input-addon">
+            <i class="material-icons">vpn_key</i>
+        </div>
+        <input id="passwd" placeholder="Password" type="password" required class="validate" autocomplete="off">
+    </div>
+    <input type="submit" value="Log In" />
 
-        <h1>Log In</h1>
-    </div>
 </div>
 </body>
 </html>
