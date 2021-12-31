@@ -23,7 +23,7 @@
 }
 
 .input {
-    opacity 0.6;
+    opacity: 0.6;
 	margin: auto;
     width: 240px;
     border-radius: 4px;
