@@ -1,7 +1,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>Главная</title>
+    <title>Авторизация</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="/css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,13 +11,22 @@
     <div id="logotype">
         <a href="https://moodle.astanait.edu.kz"><img src="/images/Astana%20IT%20University.png" width="150" height="70"></a>
     </div>
-    <div class="main_text">Главная</div>
-    <div class="buttons">
-        <a href="./request.html"><button class="button">Заказать справку</button></a>
+    <div class="main_text">Авторизация</div>
+    <form>
+    <div class="input">
+        <div class="input-addon">
+            <i class="material-icons">email</i>
+        </div>
+        <input id="email" placeholder="Username" type="text" autocomplete="off" required>
     </div>
-    <div class="buttons">
-        <a href="./status"><button class="button">Проверить статус</button></a>
+    <div class="input">
+        <div class="input-addon">
+            <i class="material-icons">vpn_key</i>
+        </div>
+        <input id="passwd" placeholder="Password" type="password" autocomplete="off" required>
     </div>
+    <input type="submit" value="Войти"/>
+    </form>
     <div class="helper">
         <span style="color: #657575">Техническая поддержка</span>
         <a href="https://t.me/dabdigaziz"><button class="button">Telegram</button></a>

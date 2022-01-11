@@ -3,10 +3,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
-    color: #F2F2F2;
+    color: #222327;
 }
 
-#container-login {
+#login_container {
     background-color: #FCFCFC;
     position: relative;
     top: 20%;
@@ -18,21 +18,9 @@ body {
     text-align: center;
 }
 
-#container-register {
-    background-color: #FCFCFC;
+#logotype{
     position: relative;
-    top: 20%;
-    margin: auto;
-    width: 340px;
-    height: 480px;
-    border-radius: 0.35em;
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
-    text-align: center;
-}
-
-#title {
-    position: relative;
-    background-color: #DD575C;
+    background: #ADD8E6;
     width: 100%;
     padding: 20px 0px;
     border-top-left-radius: 0.22em;
@@ -41,21 +29,62 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.lock {
-	position: relative;
-	top: 2px;
+#request_container {
+    background-color: #FCFCFC;
+    position: relative;
+    top: 10%;
+    margin: auto;
+    width: 450px;
+    height: 620px;
+    border-radius: 0.35em;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
+    text-align: center;
 }
 
 .input {
+    opacity: 0.6;
 	margin: auto;
     width: 240px;
     border-radius: 4px;
     background-color: #ededed;
     padding: 8px 0px;
     margin-top: 15px;
+    -webkit-transition: all 0.3s ease;;
+    -moz-transition: all 0.3s ease;;
+    -o-transition: all 0.3s ease;;
+    transition: all 0.3s ease;
+}
+
+.input:hover .input-addon {
+    opacity: 1;
+    color: #4682B4;
+}
+
+
+.search {
+    opacity: 0.6;
+    margin: 15px;
+    width: 240px;
+    border-radius: 4px;
+    background-color: #ededed;
+    padding: 8px 0px;
+    margin-top: 15px;
+    -webkit-transition: all 0.3s ease;;
+    -moz-transition: all 0.3s ease;;
+    -o-transition: all 0.3s ease;;
+    transition: all 0.3s ease;
+}
+
+.search_button {
+    padding: 8px 8px;
+    color: #F2F2F2;
+    background: #ADD8E6;
+    border: 0 none;
+    cursor: pointer;
 }
 
 .input-addon {
+    opacity: 0.6;
 	position: relative;
 	top: -2px;
     float: left;
@@ -64,6 +93,10 @@ body {
     padding: 4px 8px;
 	color: #757575;
     border-right: 1px solid #757575;
+    -webkit-transition: all 0.3s ease;;
+    -moz-transition: all 0.3s ease;;
+    -o-transition: all 0.3s ease;;
+    transition: all 0.3s ease;
 }
 
 input[type=checkbox] {
@@ -71,36 +104,39 @@ input[type=checkbox] {
 }
 
 input[type=text] {
-	color: #949494;
+	#color: #949494;
     margin: 0;
     background-color: #ededed;
     border: 1px solid #ededed;
+    outline: none;
     padding: 6px 0px;
     border-radius: 3px;
+    cursor: pointer;
 }
-
 input[type=text]:focus {
     border: 1px solid #ededed;
 }
 
-input[type=password] {
-	color: #949494;
+input[type=number] {
+    #color: #949494;
     margin: 0;
     background-color: #ededed;
     border: 1px solid #ededed;
+    outline: none;
     padding: 6px 0px;
     border-radius: 3px;
 }
 
-input[type=password]:focus {
+input[type=number]:focus {
     border: 1px solid #ededed;
 }
 
 input[type=email] {
-	color: #949494;
+    #color: #949494;
     margin: 0;
     background-color: #ededed;
     border: 1px solid #ededed;
+    outline: none;
     padding: 6px 0px;
     border-radius: 3px;
 }
@@ -109,86 +145,91 @@ input[type=email]:focus {
     border: 1px solid #ededed;
 }
 
-.forgot-password {
-    position: relative;
-    bottom: 0%;
-}
-
-.forgot-password a:link {
-    color: #f7c899;
-    text-decoration: none;
-}
-
-.forgot-password a:visited {
-    color: #f7c899;
-    text-decoration: none;
-}
-
-.forgot-password a:hover {
-    color: #449494;
-    transition: color 1s;
-}
-
-.privacy {
-    margin-top: 5px;
-    position: relative;
-    font-size: 12px;
-    bottom: 0%;
-}
-
-.privacy a:link {
-    color: #eaa05b;
-    text-decoration: none;
-}
-
-.privacy a:visited {
-    color: #eaa05b;
-    text-decoration: none;
-}
-
-.privacy a:hover {
-    color: #549494;
-    transition: color 1s;
-}
-
-*:focus {
+input[type=password] {
+	#color: #949494;
+    margin: 0;
+    background-color: #ededed;
+    border: 1px solid #ededed;
     outline: none;
+    padding: 6px 0px;
+    border-radius: 3px;
 }
 
-.remember-me {
-    margin: 10px 0;
+input[type=password]:focus {
+    border: 1px solid #ededed;
 }
 
 input[type=submit] {
+    margin: 15px;
     padding: 6px 25px;
-    background: #FF7F4F;
-    color: #fff;
-    font-weight: bold;
+    background: #ADD8E6;
+    color: #222327;
+    font-family: 'Raleway', sans-serif;
     border: 0 none;
     cursor: pointer;
     border-radius: 3px;
+    -webkit-transition: all 0.3s ease;;
+    -moz-transition: all 0.3s ease;;
+    -o-transition: all 0.3s ease;;
+    transition: all 0.3s ease;
 }
 
-.register {
-	margin: auto;
+input[type=submit]:hover {
+    background: #4682B4;
+    color: #F2F2F2;
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+input[type=submit]:active {
+    background: #4682B4;
+}
+
+.main_text {
+    margin: 20px 0;
+}
+
+.buttons {
+    margin: 5px auto 25px;
+    padding: 8px 0;
+    text-align: center;
+    width: 85%;
+}
+
+.helper {
+    margin: 2px auto auto;
     padding: 16px 0;
     text-align: center;
-    margin-top: 40px;
-    width: 85%;
+    width: 80%;
     border-top: 1px solid #C1C3C6;
 }
 
-.clearfix {
-	clear: both;
-}
-
-#register-link {
+.button {
     margin-top: 10px;
     padding: 6px 25px;
-    background: #FF7F4F;
-    color: #fff;
-    font-weight: bold;
+    background: #ADD8E6;
+    color: #222327;
+    font-family: 'Raleway', sans-serif;
     border: 0 none;
     cursor: pointer;
     border-radius: 3px;
+    -webkit-transition: all 0.3s ease;;
+    -moz-transition: all 0.3s ease;;
+    -o-transition: all 0.3s ease;;
+    transition: all 0.3s ease;
+}
+.button:hover{
+    background: #4682B4;
+    color: #F2F2F2;
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.button:active {
+    background: #4682B4;
 }

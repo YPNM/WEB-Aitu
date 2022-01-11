@@ -1,0 +1,60 @@
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Заказать справку</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div id="request_container">
+    <div id="logotype">
+        <a href="https://moodle.astanait.edu.kz"><img src="/images/Astana%20IT%20University.png" width="150" height="70"></a>
+    </div>
+    <div class="main_text">Заказать справку</div>
+    <form>
+        <div class="input">
+            <div class="input-addon">
+                <i class="material-icons">verified</i>
+            </div>
+            <input id="user_iin" placeholder="ИИН" type="text" minlength="12" maxlength="12" autocomplete="off" required>
+        </div>
+        <div class="input">
+            <div class="input-addon">
+                <i class="material-icons">person</i>
+            </div>
+            <input id="user_fullname" placeholder="ФИО" type="text" autocomplete="off" disabled required>
+        </div>
+        <div class="input">
+            <div class="input-addon">
+                <i class="material-icons">event</i>
+            </div>
+            <input id="user_barcode" placeholder="Дата рождения" type="text" autocomplete="off" disabled required>
+        </div>
+        <div class="input">
+            <div class="input-addon">
+                <i class="material-icons">group</i>
+            </div>
+            <input id="user_group" placeholder="Группа" type="text" autocomplete="off" disabled required>
+        </div>
+        <div>
+            <label><input type="checkbox" id="enrollment1" name="enrollment" value="1" onclick="myFun(this)">Справка по месту требования</label><br>
+            <label><input type="checkbox" id="enrollment2" name="enrollment" value="2" onclick="myFun(this)">Военкомат Прил.3</label><br>
+            <label><input type="checkbox" id="enrollment3" name="enrollment" value="3" onclick="myFun(this)">ГЦВП Прил. 4 (ЦОН)</label><br>
+            <label><input type="checkbox" id="enrollment4" name="enrollment" value="4" onclick="myFun(this)">ГЦВП Прил. 6 (ЦОН)</label>
+        </div>
+    </form>
+    <a href="#" onclick="alert('Проверка ИИН')"><button class="button">Проверить данные</button></a><br>
+    <a href="#" onclick="alert('Отправка заявления')"><button class="button">Отправить заявление</button></a><br>
+    <a href="./" ><button class="button">Назад</button></a>
+</div>
+</body>
+<script>
+    function myFun(checkbox) {
+        var checkboxes = document.getElementsByName('enrollment')
+        checkboxes.forEach((item) => {
+            if (item !== checkbox) item.checked = false
+        })
+    }
+</script>
+</html>
