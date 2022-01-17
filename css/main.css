@@ -6,7 +6,7 @@ body {
     color: #222327;
 }
 
-#login_container {
+.login_container {
     width: 340px;
     height: 445px;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
@@ -23,16 +23,10 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-#request_container {
-    background-color: #FCFCFC;
-    position: relative;
-    top: 10%;
-    margin: auto;
+.request_container {
     width: 450px;
     height: 620px;
-    border-radius: 0.35em;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
-    text-align: center;
 }
 
 .input {
