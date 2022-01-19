@@ -20,14 +20,15 @@
                 </div>
                 <div class="card-body text-center">
                     <h5 class="card-title">Заказать справку</h5>
+                    <form>
                     <div class="card-body input-group input-group-md">
-                        <input type="text" class="form-control" placeholder="ИИН" aria-label="Идентификатор заявления" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi-search"></i></button>
+                        <input type="text" class="form-control" minlength="12" maxlength="12" autocomplete="off" placeholder="ИИН" aria-label="Идентификатор заявления" aria-describedby="button-addon2" required>
+                        <a href="#" onclick="alert('Проверка ИИН')"><button class="btn btn-outline-secondary h-100" type="button" id="button-addon2"><i class="bi-search"></i></button></a>
                     </div>
                     <div class="card-body">
-                        <input class="form-control mb-3" type="text" placeholder="ФИО" readonly>
-                        <input class="form-control mb-3" type="text" placeholder="Дата рождения" readonly>
-                        <input class="form-control mb-3" type="text" placeholder="Группа" readonly>
+                        <input class="form-control mb-3" type="text" placeholder="ФИО" readonly required>
+                        <input class="form-control mb-3" type="text" placeholder="Дата рождения" readonly required>
+                        <input class="form-control mb-3" type="text" placeholder="Группа" readonly required>
                         <select class="form-select">
                             <option value="0" selected>Выберите тип справки</option>
                             <option value="1">Справка по месту требования</option>
@@ -36,11 +37,11 @@
                             <option value="4">ГЦВП Прил. 6 (ЦОН)</option>
                         </select>
                     </div>
-                    <a href="#" onclick="alert('Проверка ИИН')"><button class="btb button">Проверить данные</button></a><br>
-                    <a href="#" onclick="alert('Отправка заявления')"><button class="btn button">Отправить заявление</button></a><br>
+                    <a href="#" onclick="alert('Отправка заявления')"><button class="btn button">Отправить заявление</button></a>
+                    </form>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="http://localhost:63342/WEB-Aitu/bootstrap.html"><button class="btn button mb-1">Назад</button></a>
+                    <a href="/WEB-Aitu/"><button class="btn button mb-1">Назад</button></a>
                 </div>
             </div>
         </div>
