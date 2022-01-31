@@ -1,11 +1,28 @@
+<?php
+if (!empty($_POST)) {
+    require __DIR__ . '/authorization/auth.php';
+
+    $login = $_POST['login'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if (checkAuth($login, $password)) {
+        setcookie('login', $login, 0, '/');
+        setcookie('password', $password, 0, '/');
+        header('Location: /index.php');
+    } else {
+        $error = 'Ошибка авторизации';
+    }
+}
+?>
+
 <html lang="ru">
     <head>
         <meta charset="utf-8">
         <title>Авторизация</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="D:/Универ/IT/Server/data/htdocs/WEB-Aitu/images/favicon.ico">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="/admin/css/index.css">
+        <link rel="stylesheet" href="D:/Универ/IT/Server/data/htdocs/WEB-Aitu/css/index.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
     </head>
     <body>
@@ -26,6 +43,7 @@
                                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                                 <label for="floatingPassword">Password</label>
                             </div>
+                            <p class="text-center"><?= $error ?></p>
                             <a href="/admin/student.html"><button type="button" class="btn button">Войти</button></a>
                         </div>
                         <div class="card-footer text-center">
