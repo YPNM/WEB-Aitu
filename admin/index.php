@@ -1,7 +1,11 @@
+<?php
+require __DIR__ . '/php/authorization/auth.php';
+$login = getUserLogin();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title><?php echo $data->title(); ?></title>
+    <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -10,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="/admin/css/student.css">
 </head>
 <body>
+    <?php if ($login === null): ?>
+        <a href="/WEB-Aitu/admin/login.php">Авторизуйтесь</a>
+    <?php else: ?>
     <div class="container">
         <div class="row">
             <header class="d-flex justify-content-center py-3">
@@ -68,7 +75,7 @@
 <div class="main">
 
 </div>
-
+<?php endif; ?>
 <script>
     const list = document.querySelectorAll('.nav-link');
     console.log(list)
