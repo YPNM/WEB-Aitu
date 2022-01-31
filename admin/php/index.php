@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 require __DIR__ . '/authorization/auth.php';
+=======
+require __DIR__ . '\authorization\auth.php';
+>>>>>>> 8b3653f6045deaada7d99a98aa9b65b3e609d094
 $login = getUserLogin();
 ?>
 <html>
