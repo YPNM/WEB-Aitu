@@ -1,11 +1,9 @@
 <?php
-phpinfo();
 if (!empty($_POST)) {
     require __DIR__ . '/php/authorization/auth.php';
     $login = $_POST['login'] ?? '';
     $password = $_POST['password'] ?? '';
-    $users = bdusers();
-    if (checkAuth($login, $password)) {
+    if (checker($login, $password)) {
         setcookie('login', $login, 0, '/');
         setcookie('password', $password, 0, '/');
         header('Location: /WEB-Aitu/admin/index.php');
@@ -36,7 +34,7 @@ if (!empty($_POST)) {
                         <div class="card-body text-center">
                             <h5 class="card-title mb-4">Авторизация</h5>
                             <div class="form-floating mb-4">
-                                <input type="email" class="form-control" name="login" id="login" placeholder="Admin">
+                                <input type="text" class="form-control" name="login" id="login" placeholder="Admin">
                                 <label for="login">Username</label>
                             </div>
                             <?php if (!isset($error)): ?>
@@ -49,11 +47,7 @@ if (!empty($_POST)) {
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                                 <label for="password">Password</label>
                             </div>
-<<<<<<< HEAD
-                                <p class="text-center mb-0" style="color: red"><?= $users ?></p>
-=======
-                                <div class="text-center" style="color: red"><?= $error ?></div>
->>>>>>> 1ece2e860a4c908e703f5f114a6778162d66c57a
+                                <p class="text-center mb-0" style="color: red"><?= $error ?></p>
                             <?php endif; ?>
                             <input type="submit" readonly class="btn button m-2" value="Войти"></input>
                         </div>
