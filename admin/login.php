@@ -49,9 +49,13 @@ if (!empty($_POST)) {
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                                 <label for="password">Password</label>
                             </div>
+<<<<<<< HEAD
                                 <p class="text-center mb-0" style="color: red"><?= $users ?></p>
+=======
+                                <div class="text-center" style="color: red"><?= $error ?></div>
+>>>>>>> 1ece2e860a4c908e703f5f114a6778162d66c57a
                             <?php endif; ?>
-                            <input type="submit" readonly class="btn button" value="Войти"></input>
+                            <input type="submit" readonly class="btn button m-2" value="Войти"></input>
                         </div>
                         <div class="card-footer text-center">
                             <span style="color: #657575">Техническая поддержка</span>
