@@ -1,10 +1,10 @@
 <?php
+phpinfo();
 if (!empty($_POST)) {
     require __DIR__ . '/php/authorization/auth.php';
-
     $login = $_POST['login'] ?? '';
     $password = $_POST['password'] ?? '';
-
+    $users = bdusers();
     if (checkAuth($login, $password)) {
         setcookie('login', $login, 0, '/');
         setcookie('password', $password, 0, '/');
@@ -49,7 +49,7 @@ if (!empty($_POST)) {
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                                 <label for="password">Password</label>
                             </div>
-                                <p class="text-center mb-0" style="color: red"><?= $error ?></p>
+                                <p class="text-center mb-0" style="color: red"><?= $users ?></p>
                             <?php endif; ?>
                             <input type="submit" readonly class="btn button" value="Войти"></input>
                         </div>

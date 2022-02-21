@@ -14,6 +14,14 @@ function checkAuth(string $login, string $password): bool
     return false;
 }
 
+function bdusers(): string
+{
+    $db = pg_connect('host=localhost dbname=WEB user=postgres password=Nastroika5!');
+    $query = "SELECT login FROM log_pass";
+    $result = pg_query($query);
+    return $result;
+}
+
 function getUserLogin(): ?string
 {
     $loginFromCookie = $_COOKIE['login'] ?? '';
