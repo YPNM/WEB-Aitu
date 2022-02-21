@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 if (!empty($_POST)) {
     require __DIR__ . '/authorization/auth.php';
 
@@ -15,7 +14,6 @@ if (!empty($_POST)) {
     }
 }
 ?>
-
 <html lang="ru">
     <head>
         <meta charset="utf-8">
@@ -57,10 +55,6 @@ if (!empty($_POST)) {
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
-=======
-require __DIR__ . '/php/authorization/auth.php';
-$login = getUserLogin();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,5 +146,4 @@ $login = getUserLogin();
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
->>>>>>> 8b3653f6045deaada7d99a98aa9b65b3e609d094
 </html>
