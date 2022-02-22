@@ -75,18 +75,45 @@ else{
                 <tbody>
                 <?php
                     if((!empty($_GET) && $_GET['action'] == "ready") || empty($_GET)){
+                        $arr = makeReadyTable(4);
+                        for ($i = 0; $i <= count($arr)-1; $i++) {
+                            echo "<tr>";
+                            foreach($arr[$i] as $val) {
+                                echo "<td>$val</td>"; 
+                            }
+                            echo "<td>Ошибка</td>";   
+                            echo "</tr>";
+                        }
                         $arr = makeReadyTable(3);
                         for ($i = 0; $i <= count($arr)-1; $i++) {
                             echo "<tr>";
                             foreach($arr[$i] as $val) {
                                 echo "<td>$val</td>"; 
                             }
-                            echo "<td>Создан</td>";   
+                            echo "<td>Готово</td>";   
+                            echo "</tr>";
+                        }
+                        $arr = makeReadyTable(2);
+                        for ($i = 0; $i <= count($arr)-1; $i++) {
+                            echo "<tr>";
+                            foreach($arr[$i] as $val) {
+                                echo "<td>$val</td>"; 
+                            }
+                            echo "<td>В обработке</td>";   
+                            echo "</tr>";
+                        }
+                        $arr = makeReadyTable(1);
+                        for ($i = 0; $i <= count($arr)-1; $i++) {
+                            echo "<tr>";
+                            foreach($arr[$i] as $val) {
+                                echo "<td>$val</td>"; 
+                            }
+                            echo "<td>Запрос отправлен</td>";   
                             echo "</tr>";
                         }
                 }
                 else if((!empty($_GET) && $_GET['action'] == "applic")){
-                        $arr = makeReadyTable(2);
+                        $arr = makeReadyTable(1);
                         for ($i = 0; $i <= count($arr)-1; $i++) {
                             echo "<tr>";
                             foreach($arr[$i] as $val) {
@@ -97,7 +124,7 @@ else{
                         }
                 }
                     else if((!empty($_GET) && $_GET['action'] == "errors")){
-                        $arr = makeReadyTable(1);
+                        $arr = makeReadyTable(4);
                         for ($i = 0; $i <= count($arr)-1; $i++) {
                             echo "<tr>";
                             foreach($arr[$i] as $val) {
