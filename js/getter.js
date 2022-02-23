@@ -24,7 +24,7 @@ function getTextForDisplay(responce){
             "</div>";
     } else if(responce[length][1] == "3"){
         return "<div class=\"alert alert-success\" role=\"alert\">\n" +
-            "Запрос обработан положительно<br>\n" + `<a href="C:\\Users\\dabdigaziz\\PycharmProjects\\AituRequest\\venv\\files\\${responce[length][0]}.pdf">Скачать файл</a>` +
+            "Запрос обработан положительно<br>\n" + `<a href="http://45.90.34.249/${responce[length][0]}.pdf">Скачать файл</a>` +
             "</div>";
     } else {
         return "<div class=\"alert alert-danger\" role=\"alert\">\n" +
@@ -89,9 +89,40 @@ $("#request_button").click(function (){
    }
 });
 
+$("#request_select").click(function (){
+   let select_id = document.getElementById("request_select").value;
+   if(select_id == "2") {
+       $(".request_container").css("height", "750px");
+       $("#cities").css("display", "");
+       $("#draftboards").css("display", "");
+       if($("#cities").children('option').length == 1){
+           $.getJSON("./js/draftboards/all.json", function(data){
+               for(var i = 0; i < data.items.length; i++){
+                   $("#cities").append(`<option value="${data.items[i].id}">${data.items[i].nameRu}</option>`)
+               }
+           })
+       }
+   } else {
+       if($("#cities").children('option').length != 1){
+           $("#cities").empty();
+           $("#cities").append("<option value='0' selected>Выберите город</option>")
+           $("#cities").css("display", "none");
+           $(".request_container").css("height", "620px");
+       }
+       if($("#draftboards").children('option').length != 1){
+           $("#draftboards").empty();
+           $("#draftboards").append("<option value='0' selected>Выберите военкомат</option>")
+           $("#draftboards").css("display", "none");
+       }
+   }
+});
+
 $("#cities").click(function(){
-    console.log("cities clicked");
     let city_id = document.getElementById("cities").value;
+    if(city_id != "0" && $("#draftboards").length){
+        $("#draftboards").empty();
+        $("#draftboards").append("<option value='0' selected>Выберите военкомат</option>")
+    }
     if(city_id != "0") {
         $.getJSON(`./js/draftboards/${city_id}.json`, function(data){
             for(var i = 0; i < data.items.length; i++){
@@ -101,27 +132,6 @@ $("#cities").click(function(){
     }
 });
 
-$("#request_select").click(function (){
-   let select_id = document.getElementById("request_select").value;
-   if(select_id == "2") {
-       $(".request_container").css("height", "750px");
-       $("#selects").append("<select class='form-select my-3' id='cities'><option value='0' selected>Выберите город</option></select>")
-       $("#selects").append("<select class='form-select my-3' id='draftboards'><option value='0' selected>Выберите военкомат</option></select>")
-       $.getJSON("./js/draftboards/all.json", function(data){
-           for(var i = 0; i < data.items.length; i++){
-               $("#cities").append(`<option value="${data.items[i].id}">${data.items[i].nameRu}</option>`)
-           }
-       })
-   } else {
-       if($("#cities").length){
-           $("#cities").remove();
-           $(".request_container").css("height", "620px");
-       }
-       if($("#draftboards").length){
-           $("#draftboards").remove();
-       }
-   }
-});
 
 function sendRequest(){
    let user_id = document.getElementById("request_user_id").value;
