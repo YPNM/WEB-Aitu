@@ -66,6 +66,13 @@ function makeReadyTable($status){
         $students[$counter][2] = $data[0][1];
         $students[$counter][3] = $data[0][2];
         $students[$counter][4] = $data[0][3];
+        if($status == 3){
+            $new_req = "SELECT identificator FROM applications WHERE user_id = '$iin'";
+            $query = mysqli_query($conn, $new_req) or die(mysql_error());
+            $data = json_decode(json_encode(mysqli_fetch_all($query)));
+            $URL = "http://45.90.34.249/".$data[0][0].".pdf";
+            $students[$counter][5] = $URL;
+        }
         $counter++;
     }
     return $students;

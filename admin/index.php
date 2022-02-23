@@ -42,18 +42,26 @@ else{
         <div class="row">
             <header class="d-flex justify-content-center py-3">
                 <ul class="nav nav-pills">
-                    <?php if((!empty($_GET) && $_GET['action'] == "ready") || empty($_GET)): ?>
-                    <li class="nav-item"><a href="/WEB-Aitu/admin/index.php/?action=ready" class="nav-link active" aria-current="page">Справки</a></li>
+                    <?php if((!empty($_GET) && $_GET['action'] == "all") || empty($_GET)): ?>
+                    <li class="nav-item"><a href="?action=all" class="nav-link active" aria-current="page">Все</a></li>
                     <li class="nav-item"><a href="?action=applic" class="nav-link">Заявки</a></li>
                     <li class="nav-item"><a href="?action=errors" class="nav-link">Ошибки</a></li>
+                    <li class="nav-item"><a href="?action=ready" class="nav-link">Готовые</a></li>
                     <?php elseif(!empty($_GET) && $_GET['action'] == "applic"): ?>
-                    <li class="nav-item"><a href="/WEB-Aitu/admin/index.php/?action=ready" class="nav-link" aria-current="page">Справки</a></li>
+                    <li class="nav-item"><a href="?action=all" class="nav-link" aria-current="page">Все</a></li>
                     <li class="nav-item"><a href="?action=applic" class="nav-link active">Заявки</a></li>
                     <li class="nav-item"><a href="?action=errors" class="nav-link">Ошибки</a></li>
+                    <li class="nav-item"><a href="?action=ready" class="nav-link">Готовые</a></li>
                     <?php elseif(!empty($_GET) && $_GET['action'] == "errors"): ?>
-                    <li class="nav-item"><a href="/WEB-Aitu/admin/index.php/?action=ready" class="nav-link" aria-current="page">Справки</a></li>
+                    <li class="nav-item"><a href="?action=all" class="nav-link" aria-current="page">Все</a></li>
                     <li class="nav-item"><a href="?action=applic" class="nav-link">Заявки</a></li>
                     <li class="nav-item"><a href="?action=errors" class="nav-link active">Ошибки</a></li>
+                    <li class="nav-item"><a href="?action=ready" class="nav-link">Готовые</a></li>
+                    <?php elseif(!empty($_GET) && $_GET['action'] == "ready"): ?>
+                    <li class="nav-item"><a href="?action=all" class="nav-link" aria-current="page">Все</a></li>
+                    <li class="nav-item"><a href="?action=applic" class="nav-link">Заявки</a></li>
+                    <li class="nav-item"><a href="?action=errors" class="nav-link">Ошибки</a></li>
+                    <li class="nav-item"><a href="?action=ready" class="nav-link active">Готовые</a></li>
                     <?php endif; ?>
                 </ul>
                 <a href="/WEB-Aitu/admin/index.php/?action=out"><button class="btn button">Выход</button></a>
@@ -74,7 +82,7 @@ else{
                 </thead>
                 <tbody>
                 <?php
-                    if((!empty($_GET) && $_GET['action'] == "ready") || empty($_GET)){
+                    if((!empty($_GET) && $_GET['action'] == "all") || empty($_GET)){
                         $arr = makeReadyTable(4);
                         for ($i = 0; $i <= count($arr)-1; $i++) {
                             echo "<tr>";
@@ -87,10 +95,23 @@ else{
                         $arr = makeReadyTable(3);
                         for ($i = 0; $i <= count($arr)-1; $i++) {
                             echo "<tr>";
+                            $counter = 0;
                             foreach($arr[$i] as $val) {
-                                echo "<td>$val</td>"; 
+                                if($counter == 5)
+                                {
+                                    echo "<td>Готово</td>";
+                                    $counter++;
+                                }
+                                if($counter == 6){
+                                    echo "<td><a href=$val>Скачать</a></td>";
+                                }
+                                else{
+                                    echo "<td>$val</td>";
+                                    $counter++;
+                                }
+                                 
                             }
-                            echo "<td>Готово</td>";   
+                            
                             echo "</tr>";
                         }
                         $arr = makeReadyTable(2);
@@ -134,6 +155,30 @@ else{
                             echo "</tr>";
                         }
                 }
+                else if((!empty($_GET) && $_GET['action'] == "ready")){
+                    $arr = makeReadyTable(3);
+                        for ($i = 0; $i <= count($arr)-1; $i++) {
+                            echo "<tr>";
+                            $counter = 0;
+                            foreach($arr[$i] as $val) {
+                                if($counter == 5)
+                                {
+                                    echo "<td>Готово</td>";
+                                    $counter++;
+                                }
+                                if($counter == 6){
+                                    echo "<td><a href=$val>Скачать</a></td>";
+                                }
+                                else{
+                                    echo "<td>$val</td>";
+                                    $counter++;
+                                }
+                                 
+                            }
+                            
+                            echo "</tr>";
+                        }
+            }
                 ?>
                 </tbody>
             </table>
